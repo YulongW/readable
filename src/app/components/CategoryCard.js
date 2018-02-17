@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CategoryCard = ({
   category
 }) => (
-  <div className='card category-card'>
+  <div className='card category-card my-2'>
     <div className='card-body'>
       <h5 className='card-title font-weight-bold text-uppercase'>
         {category.name}
@@ -19,4 +19,4 @@ const CategoryCard = ({
   </div>
 )
 
-export default CategoryCard
+export default CategoryCard;

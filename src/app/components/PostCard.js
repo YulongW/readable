@@ -8,7 +8,7 @@ const PostCard = ({
   upVoteHandler,
   downVoteHandler
 }) => (
-  <div className='post-card col-md-6 col-lg-4 d-flex align-items-center'>
+  <div className='post-card col-md-6 col-lg-4 d-flex align-items-center py-2'>
     <div className='vote d-flex flex-column mr-3 text-center'>
       <a className='vote-up' onClick={() => upVoteHandler(post.id)}>
         <FaCaretUp />
@@ -26,8 +26,7 @@ const PostCard = ({
       </Link>
       <div className='summary-body'>
         <small>
-          Post by <span className='post-author'>{post.author}</span>
-          on <span className='post-date'>{new Date(post.timestamp).toDateString()}</span>
+          Post by <span className='post-author'>{post.author}</span> on <span className='post-date'>{new Date(post.timestamp).toDateString()}</span>
         </small>
       </div>
     </div>
@@ -35,4 +34,3 @@ const PostCard = ({
 );
 
 export default PostCard;
-

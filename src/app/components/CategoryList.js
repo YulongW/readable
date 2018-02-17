@@ -4,7 +4,7 @@ import CategoryCard from './CategoryCard';
 const CategoryList = ({
   categories = [] 
 }) => (
-  <div className='category-list-container container-fluid mt-3'>
+  <div className='category-list-container mt-3'>
     <h4 className='font-weight-bold'>Top Categories</h4>
     <div className='category-list card-deck'>
       {categories.map(category => (
@@ -14,4 +14,4 @@ const CategoryList = ({
   </div>
 )
 
-export default CategoryList
+export default CategoryList;

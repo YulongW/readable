@@ -36,7 +36,15 @@ class PostDetailContainer extends Component {
     const id = match.params.id;
     PostApi
       .getPost(id)
-      .then(post => {this.props.receivePost(post)});
+      .then(post => this.props.receivePost(post));
+  }
+
+  deletePost = (id) => {
+    const { history } = this.props;
+
+    PostApi.deletePost(id).then((res) => {
+      history.goBack();
+    });
   }
 
   render() {
@@ -46,6 +54,7 @@ class PostDetailContainer extends Component {
         post={post} 
         upVoteHandler={upVotePost} 
         downVoteHandler={downVotePost} 
+        deletePostHandler={this.deletePost}
       />
     );
   }

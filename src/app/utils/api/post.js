@@ -14,6 +14,24 @@ export const getPost = (id) => {
     .then(res => res.json());
 };
 
+export const addPost = (post) => {
+  return fetch(`${api}/posts`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  }).then(res => res.json())
+};
+
+export const deletePost = (id) => {
+  return fetch(`${api}/posts/${id}`, {
+    method: 'DELETE',
+    headers,
+  }).then(res => res.json())
+};
+
 export const updateVote = (id, option) => {
   return fetch(`${api}/posts/${id}`, {
     method: 'POST',

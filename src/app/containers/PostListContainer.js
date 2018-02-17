@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import sort from 'lodash.sortby';
 
 // presentational components
 import PostList from '../components/PostList';
@@ -15,7 +16,8 @@ import {
 } from '../../app/actions/post';
 
 const mapStateToProps = (state) => ({
-  posts: state.post.posts
+  posts: state.post.posts,
+  sortBy: state.post.sortBy
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -51,12 +53,12 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { posts, upVotePost, downVotePost } = this.props;
+    const { posts, upVotePost, downVotePost, sortBy } = this.props;
     const { postListTitle } = this.state;
 
     return (
       <PostList
-        posts={posts}
+        posts={sort(posts, [sortBy])}
         title={postListTitle}
         upVoteHandler={upVotePost}
         downVoteHandler={downVotePost}

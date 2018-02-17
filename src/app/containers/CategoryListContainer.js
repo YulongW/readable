@@ -8,7 +8,7 @@ import CategoryList from '../components/CategoryList';
 import * as CategoryApi from '../utils/api/category';
 
 // actions
-import { receiveCategories } from '../../app/actions/category'
+import { receiveCategories } from '../../app/actions/category';
 
 const mapStateToProps = (state) => ({
   categories: state.category.categories

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import PostListContainer from '../containers/PostListContainer';
 import CategoryListContainer from '../containers/CategoryListContainer';

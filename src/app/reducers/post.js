@@ -3,17 +3,22 @@ import {
   RECEIVE_POSTS,
   RECEIVE_POST,
   UP_VOTE_POST,
-  DOWN_VOTE_POST 
+  DOWN_VOTE_POST,
+  SET_SORT_BY
 } from '../actions/post';
 
 const initialState = {
-  posts: []
+  posts: [],
+  sortBy: 'timestamp'
 }
 
 function post(state = initialState, action) {
   switch (action.type) {
     case ADD_POST:
-      return state;
+      return {
+        ...state,
+        posts: state.posts.concat(action.post)
+      }
     case RECEIVE_POSTS:
       return {
         ...state,
@@ -25,8 +30,6 @@ function post(state = initialState, action) {
         posts: [].concat(action.post)
       }
     case UP_VOTE_POST:
-      console.log(state);
-      console.log(action);
       return {
         ...state,
         posts: [].concat(action.post).concat(
@@ -34,12 +37,16 @@ function post(state = initialState, action) {
         )
       }
     case DOWN_VOTE_POST:
-      console.log(state);
       return {
         ...state,
         posts: [].concat(action.post).concat(
           state.posts.filter(post => action.post.id !== post.id)
         )
+      }
+    case SET_SORT_BY:
+      return {
+        ...state,
+        sortBy: action.sortBy
       }
     default:
       return state;

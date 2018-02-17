@@ -7,7 +7,7 @@ const PostList = ({
   upVoteHandler,
   downVoteHandler
 }) => (
-  <div className='post-list container-fluid mt-3'>
+  <div className='post-list mt-3'>
     <h4 className='font-weight-bold text-capitalize'>{title}</h4>
 
     <div className='post-list row'>
@@ -20,7 +20,6 @@ const PostList = ({
         />
       ))}
     </div>
-    
   </div>
 );
 

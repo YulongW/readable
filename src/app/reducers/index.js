@@ -5,4 +5,4 @@ import category from './category'
 export default combineReducers({
   post,
   category
-})
+});
