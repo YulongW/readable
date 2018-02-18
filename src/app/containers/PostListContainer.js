@@ -11,6 +11,7 @@ import * as PostApi from '../utils/api/post';
 // actions
 import {
   receivePosts,
+  deletePost,
   downVotePost,
   upVotePost
 } from '../../app/actions/post';
@@ -22,6 +23,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   receivePosts: (posts) => dispatch(receivePosts(posts)),
+
+  deletePost: (postId) => PostApi.deletePost(postId).then(
+    post => dispatch(deletePost(post))
+  ),
 
   upVotePost: (postId) => PostApi.upVote(postId).then(
     post => dispatch(upVotePost(post))
@@ -53,7 +58,7 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { posts, upVotePost, downVotePost, sortBy } = this.props;
+    const { posts, upVotePost, downVotePost, deletePost, sortBy } = this.props;
     const { postListTitle } = this.state;
 
     return (
@@ -62,6 +67,7 @@ class PostListContainer extends Component {
         title={postListTitle}
         upVoteHandler={upVotePost}
         downVoteHandler={downVotePost}
+        deletePostHandler={deletePost}
       />
     );
   }

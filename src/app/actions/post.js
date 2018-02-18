@@ -1,4 +1,5 @@
 export const ADD_POST = 'ADD_POST';
+export const DELETE_POST = 'DELETE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const UP_VOTE_POST = 'UP_VOTE_POST';
@@ -7,6 +8,11 @@ export const SET_SORT_BY = 'SET_SORT_BY';
 
 export const addPost = (post) => ({
   type: ADD_POST,
+  post
+});
+
+export const deletePost = (post) => ({
+  type: DELETE_POST,
   post
 });
 

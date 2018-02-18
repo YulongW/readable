@@ -1,6 +1,5 @@
 import React from 'react';
 import PostCard from './PostCard';
-import { Link } from 'react-router-dom';
 
 const PostDetail = ({
   post = {},
@@ -15,16 +14,8 @@ const PostDetail = ({
       post={post}
       upVoteHandler={upVoteHandler}
       downVoteHandler={downVoteHandler}
+      deletePostHandler={deletePostHandler}
     />
-
-    <div className='post-control btn-group mx-2' role='group' aria-label='Edit and Delete Post'>
-      <button type='button' className='btn btn-sm btn-secondary'>
-        <Link to={`/edit/${post.id}`} className='text-white'>Edit</Link>
-      </button>
-      <button type='button' className='btn btn-sm btn-danger' onClick={() => deletePostHandler(post.id)}>
-        Delete
-      </button>
-    </div>
 
     <div className='post-body mt-3 mx-2'>
       {post.body}

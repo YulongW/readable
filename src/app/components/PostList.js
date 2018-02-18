@@ -5,7 +5,8 @@ const PostList = ({
   posts = [],
   title,
   upVoteHandler,
-  downVoteHandler
+  downVoteHandler,
+  deletePostHandler
 }) => (
   <div className='post-list mt-3'>
     <h4 className='font-weight-bold text-capitalize'>{title}</h4>
@@ -17,6 +18,7 @@ const PostList = ({
           post={post}
           upVoteHandler={upVoteHandler}
           downVoteHandler={downVoteHandler}
+          deletePostHandler={deletePostHandler}
         />
       ))}
     </div>

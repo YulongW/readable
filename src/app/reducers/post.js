@@ -1,5 +1,6 @@
 import { 
   ADD_POST,
+  DELETE_POST,
   RECEIVE_POSTS,
   RECEIVE_POST,
   UP_VOTE_POST,
@@ -18,6 +19,11 @@ function post(state = initialState, action) {
       return {
         ...state,
         posts: state.posts.concat(action.post)
+      }
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter(post => action.post.id !== post.id)
       }
     case RECEIVE_POSTS:
       return {
