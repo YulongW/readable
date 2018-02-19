@@ -1,5 +1,6 @@
 import { 
   ADD_COMMENT,
+  DELETE_COMMENT,
   RECEIVE_COMMENTS,
   UP_VOTE_COMMENT,
   DOWN_VOTE_COMMENT
@@ -15,6 +16,11 @@ function comment(state = initialState, action) {
       return {
         ...state,
         comments: state.comments.concat(action.comment)
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        comments: state.comments.filter(comment => action.comment.id !== comment.id)
       }
     case RECEIVE_COMMENTS:
       return {

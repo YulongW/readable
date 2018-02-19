@@ -4,9 +4,9 @@ import PostCard from './PostCard';
 const PostList = ({
   posts = [],
   title,
-  upVoteHandler,
-  downVoteHandler,
-  deletePostHandler
+  upVotePost,
+  downVotePost,
+  deletePost
 }) => (
   <div className='post-list mt-3'>
     <h4 className='font-weight-bold text-capitalize'>{title}</h4>
@@ -16,9 +16,9 @@ const PostList = ({
         <PostCard
           key={post.id}
           post={post}
-          upVoteHandler={upVoteHandler}
-          downVoteHandler={downVoteHandler}
-          deletePostHandler={deletePostHandler}
+          upVotePost={upVotePost}
+          downVotePost={downVotePost}
+          deletePost={deletePost}
         />
       ))}
     </div>

@@ -65,9 +65,9 @@ class PostListContainer extends Component {
       <PostList
         posts={sort(posts, [sortBy])}
         title={postListTitle}
-        upVoteHandler={upVotePost}
-        downVoteHandler={downVotePost}
-        deletePostHandler={deletePost}
+        upVotePost={upVotePost}
+        downVotePost={downVotePost}
+        deletePost={deletePost}
       />
     );
   }

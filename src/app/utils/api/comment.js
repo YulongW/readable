@@ -1,7 +1,7 @@
 import { api, headers } from './config';
 
 export const getComments = (postId) => {
-  const url = `${api}/${postId}/comments`;
+  const url = `${api}/posts/${postId}/comments`;
 
   return fetch(url, { headers })
     .then(res => res.json());

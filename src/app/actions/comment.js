@@ -1,10 +1,16 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const UP_VOTE_COMMENT = 'UP_VOTE_COMMENT';
 export const DOWN_VOTE_COMMENT = 'DOWN_VOTE_COMMENT';
 
 export const addComment = (comment) => ({
   type: ADD_COMMENT,
+  comment
+});
+
+export const deleteComment = (comment) => ({
+  type: DELETE_COMMENT,
   comment
 });
 

@@ -5,17 +5,17 @@ import FaCaretDown from 'react-icons/lib/fa/caret-down';
 
 const PostCard = ({
   post,
-  upVoteHandler,
-  downVoteHandler,
-  deletePostHandler
+  upVotePost,
+  downVotePost,
+  deletePost
 }) => (
   <div className='post-card col-md-6 col-lg-4 d-flex align-items-center py-2'>
     <div className='vote d-flex flex-column mr-3 text-center'>
-      <a className='vote-up' onClick={() => upVoteHandler(post.id)}>
+      <a className='vote-up' onClick={() => upVotePost(post.id)}>
         <FaCaretUp />
       </a>
       <span className='vote-count'>{post.voteScore}</span>
-      <a className='vote-down' onClick={() => downVoteHandler(post.id)}>
+      <a className='vote-down' onClick={() => downVotePost(post.id)}>
         <FaCaretDown />
       </a>
       {post.deleted}
@@ -38,7 +38,7 @@ const PostCard = ({
         <button type='button' className='btn btn-sm btn-secondary'>
           <Link to={`/edit/${post.id}`} className='text-white'>Edit</Link>
         </button>
-        <button type='button' className='btn btn-sm btn-danger' onClick={() => deletePostHandler(post.id)}>
+        <button type='button' className='btn btn-sm btn-danger' onClick={() => deletePost(post.id)}>
           Delete
         </button>
       </div>
