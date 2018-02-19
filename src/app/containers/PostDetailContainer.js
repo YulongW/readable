@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import sort from 'lodash.sortby';
+import uuidV4 from 'uuid/v4';
 
 // presentational components
 import PostDetail from '../components/PostDetail';
@@ -17,6 +18,7 @@ import {
 } from '../../app/actions/post';
 
 import {
+  addComment,
   receiveComments,
   deleteComment,
   upVoteComment,
@@ -51,10 +53,20 @@ const mapDispatchToProps = (dispatch) => ({
 
   downVoteComment: (commentId) => CommentApi.downVote(commentId).then(
     comment => dispatch(downVoteComment(comment))
-  )
+  ),
+
+  dispatch
 });
 
 class PostDetailContainer extends Component {
+  state = {
+    commentForm: {
+      parentId: '',
+      author: '',
+      body: ''
+    }
+  }
+
   componentDidMount() {
     const { match, receivePost, receiveComments } = this.props;
     const id = match.params.id;
@@ -67,6 +79,13 @@ class PostDetailContainer extends Component {
       .then(comments => {
         receiveComments(comments);
       });
+
+      this.setState((prev) => ({
+        commentForm: {
+          ...prev.commentForm,
+          'parentId': post.id
+        }
+      }));
     });
   }
 
@@ -78,11 +97,53 @@ class PostDetailContainer extends Component {
     });
   }
 
+  updateCommentForm = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState((prev) => ({
+      commentForm: {
+        ...prev.commentForm,
+        [name]: value
+      }
+    }));
+  }
+
+  submitCommentForm = (event) => {
+    const { dispatch } = this.props;
+    event.preventDefault();
+
+    const { commentForm } = this.state;
+    const id = uuidV4();
+    const timestamp = new Date().getTime();
+
+    CommentApi.addComment({
+      ...commentForm,
+      id,
+      timestamp
+    }).then((comment) => {
+      dispatch(addComment(comment));
+      this.clearCommentForm();
+    });
+  }
+
+  clearCommentForm = () => {
+    this.setState((prev) => ({
+      commentForm: {
+        ...prev.commentForm,
+        author: '',
+        body: ''
+      }
+    }));
+  }
+
   render() {
     const {
       post, upVotePost, downVotePost, 
-      comments, upVoteComment, downVoteComment, addComment, deleteComment
-    } = this.props; 
+      comments, upVoteComment, downVoteComment, deleteComment
+    } = this.props;
+    const { commentForm } = this.state;
 
     return (
       <PostDetail 
@@ -91,11 +152,13 @@ class PostDetailContainer extends Component {
         downVotePost={downVotePost} 
         deletePost={this.deletePost}
         
-        comments={sort(comments, ['voteScore']).reverse()} 
-        upVoteComment={upVoteComment} 
-        downVoteComment={downVoteComment} 
-        addComment={addComment}
+        comments={sort(comments, ['voteScore']).reverse()}
+        upVoteComment={upVoteComment}
+        downVoteComment={downVoteComment}
         deleteComment={deleteComment}
+        commentForm={commentForm}
+        updateCommentForm={this.updateCommentForm}
+        submitCommentForm={this.submitCommentForm}
       />
     );
   }

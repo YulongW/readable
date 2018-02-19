@@ -9,7 +9,7 @@ const PostList = ({
   deletePost
 }) => (
   <div className='post-list mt-3'>
-    <h4 className='font-weight-bold text-capitalize'>{title}</h4>
+    <h5 className='font-weight-bold text-capitalize'>{title}</h5>
 
     <div className='post-list row'>
       {posts.map(post => (

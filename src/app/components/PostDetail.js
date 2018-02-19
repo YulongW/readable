@@ -12,8 +12,11 @@ const PostDetail = ({
   upVoteComment,
   downVoteComment,
   deleteComment,
+  commentForm,
+  updateCommentForm,
+  submitCommentForm
 }) => (
-  <div className='post-detail mt-3'>
+  <div className='post-detail mt-3 mb-4 pb-4'>
     <h5 className='post-title font-weight-bold text-capitalize'>Post Detail</h5>
 
     <PostCard
@@ -33,6 +36,9 @@ const PostDetail = ({
       upVoteComment={upVoteComment} 
       downVoteComment={downVoteComment} 
       deleteComment={deleteComment}
+      commentForm={commentForm}
+      updateCommentForm={updateCommentForm} 
+      submitCommentForm={submitCommentForm}
     />
   </div>
 );
