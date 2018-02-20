@@ -74,7 +74,7 @@ class PostDetailContainer extends Component {
     PostApi.getPost(id)
     .then(post => {
       // if no post is found
-      if (Object.keys(post).length == 0) {
+      if (Object.keys(post).length === 0) {
         history.push('/404');
       }
 

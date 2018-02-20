@@ -34,7 +34,7 @@ const Comment = ({
 
       <div className='comment-control btn-group my-2' role='group' aria-label='Edit and Delete Comment'>
         <button type='button' className='btn btn-sm btn-secondary'>
-          <Link to={`/edit/${comment.id}`} className='text-white'>Edit</Link>
+          <Link to={`/edit/comment/${comment.id}`} className='text-white'>Edit</Link>
         </button>
         <button type='button' className='btn btn-sm btn-danger' onClick={() => deleteComment(comment.id)}>
           Delete

@@ -25,6 +25,17 @@ export const addPost = (post) => {
   }).then(res => res.json())
 };
 
+export const updatePost = (post) => {
+  return fetch(`${api}/posts/${post.id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  }).then(res => res.json())
+};
+
 export const deletePost = (id) => {
   return fetch(`${api}/posts/${id}`, {
     method: 'DELETE',

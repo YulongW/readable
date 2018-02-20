@@ -9,9 +9,11 @@ import PostListContainer from './PostListContainer';
 import PostDetailContainer from './PostDetailContainer';
 import CreatePostContainer from './CreatePostContainer';
 import EditPostContainer from './EditPostContainer';
+import EditCommentContainer from './EditCommentContainer';
 import NoMatch from '../components/NoMatch';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -25,6 +27,7 @@ const Root = ({ store }) => (
             <Route exact path='/' component={App} />
             <Route exact path='/create' component={CreatePostContainer} />
             <Route path='/posts/:id' component={PostDetailContainer} />
+            <Route path='/edit/comment/:id' component={EditCommentContainer} />
             <Route path='/edit/:id' component={EditPostContainer} />
             <Route path='/:category' component={PostListContainer} />
           </Switch>

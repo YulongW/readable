@@ -8,11 +8,6 @@ import PostForm from '../components/PostForm';
 // api
 import * as PostApi from '../utils/api/post';
 
-const mapStateToProps = (state) => ({
-  categories: ['react', 'redux', 'udacity']
-});
-
-const mapDispatchToProps = (dispatch) => ({});
 
 class CreatePostContainer extends Component {
   state = {
@@ -21,7 +16,8 @@ class CreatePostContainer extends Component {
       author: '',
       category: '',
       body: ''
-    }
+    },
+    categories: ['react', 'redux', 'udacity']
   }
 
   updatePostForm = (event) => {
@@ -55,8 +51,7 @@ class CreatePostContainer extends Component {
   }
 
   render() {
-    const { categories } = this.props;
-    const { post } = this.state;
+    const { post, categories } = this.state;
 
     return (
       <PostForm 
@@ -69,7 +64,4 @@ class CreatePostContainer extends Component {
   }
 };
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(CreatePostContainer);
+export default connect()(CreatePostContainer);

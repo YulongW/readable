@@ -7,11 +7,6 @@ import PostForm from '../components/PostForm';
 // api
 import * as PostApi from '../utils/api/post';
 
-const mapStateToProps = (state) => ({
-  categories: ['react', 'redux', 'udacity']
-});
-
-const mapDispatchToProps = (dispatch) => ({});
 
 class EditPostContainer extends Component {
   state = {
@@ -20,7 +15,8 @@ class EditPostContainer extends Component {
       author: '',
       category: '',
       body: ''
-    }
+    },
+    categories: ['react', 'redux', 'udacity']
   }
 
   componentDidMount() {
@@ -32,15 +28,6 @@ class EditPostContainer extends Component {
         .then(post => this.setState({
           post
         }));
-    }
-  }
-
-  state = {
-    post: {
-      title: '',
-      author: '',
-      category: '',
-      body: ''
     }
   }
 
@@ -65,25 +52,23 @@ class EditPostContainer extends Component {
     const { post } = this.state;
     const { history } = this.props;
 
-    PostApi.addPost(post).then((res) => history.push(`/posts/${post.id}`));
+    PostApi
+      .updatePost(post)
+      .then((res) => history.push(`/posts/${post.id}`));
   }
 
   render() {
-    const { categories } = this.props;
-    const { post } = this.state;
+    const { post, categories } = this.state;
 
     return (
       <PostForm 
         post={post}
+        categories={categories}
         inputChangeHandler={this.updatePostForm}
         submitHandler={this.updatePost}
-        categories={categories}
       />
     );
   }
 };
 
-export default connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(EditPostContainer);
+export default connect()(EditPostContainer);
