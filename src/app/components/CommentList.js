@@ -29,7 +29,7 @@ const CommentList = ({
       </div>
     )}
 
-    <h5 className='font-weight-bold mt-4'>New Comment</h5>
+    <h5 className='font-weight-bold my-4 pt-4 border-top'>New Comment</h5>
     <CommentForm
       commentForm={commentForm}
       updateCommentForm={updateCommentForm}

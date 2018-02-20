@@ -9,6 +9,7 @@ import PostListContainer from './PostListContainer';
 import PostDetailContainer from './PostDetailContainer';
 import CreatePostContainer from './CreatePostContainer';
 import EditPostContainer from './EditPostContainer';
+import NoMatch from '../components/NoMatch';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ const Root = ({ store }) => (
 
         <div className='container-fluid'>
           <Switch>
+            <Route exact path='/404' component={NoMatch} />
             <Route exact path='/' component={App} />
             <Route exact path='/create' component={CreatePostContainer} />
             <Route path='/posts/:id' component={PostDetailContainer} />

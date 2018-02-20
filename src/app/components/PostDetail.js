@@ -26,7 +26,7 @@ const PostDetail = ({
       deletePost={deletePost}
     />
 
-    <div className='post-body mt-3 mx-2'>
+    <div className='post-body py-3 my-2 px-5 border-top border-bottom'>
       {post.body}
     </div>
 

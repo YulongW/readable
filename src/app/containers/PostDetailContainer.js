@@ -68,11 +68,16 @@ class PostDetailContainer extends Component {
   }
 
   componentDidMount() {
-    const { match, receivePost, receiveComments } = this.props;
+    const { match, history, receivePost, receiveComments } = this.props;
     const id = match.params.id;
     
     PostApi.getPost(id)
     .then(post => {
+      // if no post is found
+      if (Object.keys(post).length == 0) {
+        history.push('/404');
+      }
+
       receivePost(post);
 
       CommentApi.getComments(post.id)
