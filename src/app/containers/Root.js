@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -14,14 +13,13 @@ import NoMatch from '../components/NoMatch';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div className='root'>
         <HeaderContainer />
 
-        <div className='container-fluid'>
+        <div className='container-fluid mt-3 mb-4 pb-4'>
           <Switch>
             <Route exact path='/404' component={NoMatch} />
             <Route exact path='/' component={App} />
@@ -33,17 +31,13 @@ const Root = ({ store }) => (
           </Switch>
         </div>
 
-        <footer className='fixed-bottom bg-dark text-center'>
-          <span className='text-white'>&copy; Yulong</span>
+        <footer className='fixed-bottom bg-dark text-center py-1'>
+          <span className='text-white'>&copy; 2018 Yulong W.</span>
         </footer>
 
       </div>
     </Router>
   </Provider>
 );
-
-Root.propTypes = {
-  store: PropTypes.object.isRequired
-}
 
 export default Root;

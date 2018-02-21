@@ -8,7 +8,6 @@ import PostForm from '../components/PostForm';
 // api
 import * as PostApi from '../utils/api/post';
 
-
 class CreatePostContainer extends Component {
   state = {
     post: {

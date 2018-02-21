@@ -1,0 +1,6 @@
+.vote-up,
+.vote-down {
+  cursor: pointer;
+  font-size: 20px;
+}
+

@@ -7,7 +7,6 @@ import CommentForm from '../components/CommentForm';
 // api
 import * as CommentApi from '../utils/api/comment';
 
-
 class EditCommentContainer extends Component {
   state = {
     comment: {
@@ -52,7 +51,7 @@ class EditCommentContainer extends Component {
     CommentApi.updateComment({
       ...comment,
       timestamp: new Date().getTime()
-    }).then(() => history.goBack());
+    }).then(() => history.push(`/posts/${comment.parentId}`));
   }
 
   render() {

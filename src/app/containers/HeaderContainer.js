@@ -14,9 +14,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  sortByHandler: (event) => {
-    dispatch(setSortBy(event.target.value));
-  }
+  sortByHandler: (event) => dispatch(setSortBy(event.target.value))
 });
 
 class HeaderContainer extends Component {

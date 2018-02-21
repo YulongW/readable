@@ -9,7 +9,7 @@ const PostCard = ({
   downVotePost,
   deletePost
 }) => (
-  <div className='post-card col-md-6 col-lg-4 d-flex align-items-center py-2'>
+  <div className='post-card col-md-6 col-lg-4 d-flex align-items-start py-2'>
     <div className='vote d-flex flex-column mr-3 text-center'>
       <a className='vote-up' onClick={() => upVotePost(post.id)}>
         <FaCaretUp />
