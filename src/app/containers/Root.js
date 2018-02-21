@@ -24,9 +24,9 @@ const Root = ({ store }) => (
             <Route exact path='/404' component={NoMatch} />
             <Route exact path='/' component={App} />
             <Route exact path='/create' component={CreatePostContainer} />
-            <Route path='/posts/:id' component={PostDetailContainer} />
             <Route path='/edit/comment/:id' component={EditCommentContainer} />
             <Route path='/edit/:id' component={EditPostContainer} />
+            <Route path='/:category/:id' component={PostDetailContainer} />
             <Route path='/:category' component={PostListContainer} />
           </Switch>
         </div>

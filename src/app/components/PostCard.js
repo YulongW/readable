@@ -22,7 +22,7 @@ const PostCard = ({
     </div>
     
     <div className='summary'>
-      <Link to={`/posts/${post.id}`}>
+      <Link to={`/${post.category}/${post.id}`}>
         {post.title}
       </Link>
 
